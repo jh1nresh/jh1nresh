@@ -1,98 +1,68 @@
-## Hi, I'm Jerry Chen | Software Developer 🇹🇼
+# Jerry Chen
 
-<p align="left">
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=9945FF&width=435&lines=Full+Stack+Developer;SVM+and+EVM+Enthusiast;Building+Researching+DeFi;Actively+Seeking+Web3+Jobs" alt="Typing SVG" />
-</p>
+**Founder-engineer building verifiable agent systems across consumer AI, commerce, and onchain settlement.**
 
-<p align="left">
-<a href="https://github.com/JhiNResH"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="Github"></a>
-<a href="https://medium.com/@dontforgetbananatiff/"><img src="https://img.shields.io/badge/Medium-12100E?style=flat-square&logo=medium&logoColor=white" alt="Medium"></a>
-<a href="mailto:jhinresh@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Gmail"></a>
-<a href="https://twitter.com/JhiNResH"><img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white" alt="X"></a>
-</p>
+I work across native iOS, full-stack TypeScript, Solidity, and Solana. My current focus is making agents useful in real workflows: they should operate inside clear permissions, produce inspectable receipts, and fail safely when evidence is incomplete.
 
----
+Based in Irvine, California. Originally from Taiwan.
 
-### ⚡ About Me
+[Portfolio](https://www.jeezlabs.io) · [X](https://x.com/JhiNResH) · [Profile and links](https://dinq.me/jhinresh) · [Email](mailto:jhinresh@gmail.com)
 
-<img width="200" align="right" alt="Coding Cat" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" />
+## Selected work
 
-- 🎯 **Focus Areas:** DeFi / Stablecoin / AMM / RWA / ZK / Agents
-- 🛠️ **Current Work:** Developing hackathon projects and Web3 dApps.
-- 🌱 **Growth:** Deep diving into the **SVM / EVM Ecosystem** & **Rust**.
-- 👯 **Collaboration:** Open to collaborating on any blockchain-related projects.
-- 🤔 **Goal:** Actively seeking **Web3 Developer Jobs**.
-- 💡 **Fun Fact:** I hold a Bachelor's degree in Mechanical Engineering.
-- 📫 **Reach Me:** [jhinresh@gmail.com](mailto:jhinresh@gmail.com)
+### [SAV-E](https://github.com/JhiNResH/SAV-E): private place memory for iOS
 
----
+Turns messy travel and food clues from social links, web pages, voice, and Google Takeout into reviewable evidence and confirmed Map Stamps. Uncertain clues stay in Review instead of becoming invented places.
 
-### 🛠 Languages & Tools
+`SwiftUI` · `MapKit` · `App Intents` · `Share Extension` · `App Clip` · `Node.js` · `PostgreSQL`
 
-| Category       | Skills & Frameworks                                                                                                                                                                                                                                                                                                                                                                                                         |
-| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Languages**  | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white) ![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white) |
-| **Blockchain** | ![Solana](https://img.shields.io/badge/Solana-9945FF?style=flat-square&logo=solana&logoColor=white) ![Anchor](https://img.shields.io/badge/Anchor-3F51B5?style=flat-square) ![Foundry](https://img.shields.io/badge/Foundry-FF4C39?style=flat-square&logo=rust&logoColor=white) ![Web3.js](https://img.shields.io/badge/Web3.js-F16822?style=flat-square&logo=ethereum&logoColor=white)                                     |
-| **Web Tech**   | ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)                 |
+[Source](https://github.com/JhiNResH/SAV-E) · [Web handoff](https://sav-e-app.vercel.app)
 
----
+### [Maiat Protocol](https://github.com/JhiNResH/maiat-protocol): trust infrastructure for agentic commerce
 
-### 🌌 GitHub 3D Metrics
+Combines agent and token risk signals, community reviews, onchain behavior, and EAS attestations behind a trust API, SDKs, middleware, and deployed Base contracts.
 
-<p align="center">
-  <img src="profile-3d-contrib/profile-night-rainbow.svg" alt="GitHub 3D Calendar" />
-</p>
+`TypeScript` · `Next.js` · `Solidity` · `Foundry` · `EAS` · `Base`
 
----
+[Live app](https://app.maiat.io) · [Source](https://github.com/JhiNResH/maiat-protocol) · [API docs](https://app.maiat.io/docs)
 
-### ⏱️ Weekly Coding Stats
+### [Match Receipt Engine](https://github.com/JhiNResH/match-receipt-engine): proof-gated settlement
 
-<!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-1%2C480%20hrs%2056%20mins-blue?style=flat)
+Converts sports events into deterministic settlement receipts. Merkle proof verification gates state transitions; tampered evidence blocks settlement and routes funds to a refund path.
 
-![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-24.20%20million%20lines%20of%20code-blue?style=flat)
+`TypeScript` · `Merkle proofs` · `State machines` · `TxLINE` · `Vercel`
 
-**🐱 My GitHub Data** 
+[Live demo](https://match-receipt-engine.vercel.app) · [Tamper demo](https://match-receipt-engine.vercel.app/?tamper=1) · [Source](https://github.com/JhiNResH/match-receipt-engine)
 
-> 📦 ? Used in GitHub's Storage 
- > 
-> 🏆 5,598 Contributions in the Year 2026
- > 
-> 💼 Opted to Hire
- > 
-> 📜 121 Public Repositories 
- > 
-> 🔑 0 Private Repositories 
- > 
-**I'm an Early 🐤** 
+## How I build
 
 ```text
-🌞 Morning                5956 commits        ████░░░░░░░░░░░░░░░░░░░░░   17.71 % 
-🌆 Daytime                13255 commits       ██████████░░░░░░░░░░░░░░░   39.41 % 
-🌃 Evening                11259 commits       ████████░░░░░░░░░░░░░░░░░   33.47 % 
-🌙 Night                  3166 commits        ██░░░░░░░░░░░░░░░░░░░░░░░   09.41 % 
+customer problem
+-> explicit product decision
+-> narrow implementation
+-> deterministic checks
+-> adversarial review
+-> inspectable receipt
 ```
 
+- I treat model output as a proposal until code, tests, logs, or user evidence verifies it.
+- I prefer small systems with explicit state, permission, convergence, and failure boundaries.
+- I use AI coding agents as engineering workers inside a reviewable harness, not as a substitute for product judgment.
 
-📊 **This Week I Spent My Time On** 
+## Experience and recognition
 
-```text
-🐱‍💻 Projects: 
-brain                    13 hrs 50 mins      █████████████████░░░░░░░░   68.29 % 
-os-taxonomy              3 hrs 56 mins       █████░░░░░░░░░░░░░░░░░░░░   19.43 % 
-match-receipt-engine     47 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.91 % 
-wanderly-current         27 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.30 % 
-Gimi                     27 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.24 % 
-```
+- Founder of [**Sponge**](https://github.com/JhiNResH/Sponge), a Solana stablecoin yield project; previously a Growth Developer Intern at **Perena** and a **Wormhole Fellow**.
+- **Base Batches 003** Student Track: Top 5 with [Maiat](https://github.com/JhiNResH/maiat-protocol).
+- **BNB Chain US College Hackathon**: 2nd place with [Dojo](https://github.com/JhiNResH/maiat-dojo).
+- **Jito Grid Hackathon**: 1st place with [Sponge](https://github.com/JhiNResH/Sponge).
+- Graduate study in computer science at **Westcliff University**, with prior graduate training in information systems and mechanical engineering.
 
+## Working stack
 
- Last Updated on 12/07/2026 03:37:47 UTC
-<!--END_SECTION:waka-->
+`Swift` · `SwiftUI` · `MapKit` · `TypeScript` · `React` · `Next.js` · `Node.js` · `Solidity` · `Foundry` · `Rust` · `Anchor` · `Solana` · `PostgreSQL` · `Python`
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=JhiNResH&color=blueviolet&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
-</p>
+## Contact
 
----
+I am open to conversations about agent infrastructure, verifiable execution, consumer AI, onchain settlement, and early-stage product engineering.
 
-⭐️ Built by [JhiNResH](https://github.com/JhiNResH)
+[jhinresh@gmail.com](mailto:jhinresh@gmail.com)

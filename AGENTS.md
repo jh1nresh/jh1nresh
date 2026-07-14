@@ -1,39 +1,44 @@
-# AGENTS.md - Github-ReadMe
+# AGENTS.md - GitHub Profile
 
-Repo rails for coding agents working in this project.
+Repo rails for agents editing Jerry Chen's public GitHub profile.
 
 ## Before Editing
 
-- Confirm the current branch and dirty state with `git status --short --branch`.
-- Read repo-local docs first: `README*`, package/config files, app entrypoints, and nearby tests.
-- Preserve unrelated user changes. Do not revert, reformat, or clean files outside the task scope.
-- Keep changes surgical. Prefer the existing stack and local patterns over new abstractions.
+- Confirm the branch and dirty state with `git status --short --branch`.
+- Read `README.md`, `SETUP.md`, and the workflows before changing public claims.
+- Treat the legacy profile checkout as read-only evidence. Never edit it from this repo.
+- Preserve the profile's proof-first tone. Do not add typing animations, profile-view counters, generic skill badges, or unsupported metrics.
+- Do not restore a source link until the destination is public and returns a successful response.
+
+## Public Content Boundaries
+
+- Every claim must be supported by a live product, public artifact, or verified local history.
+- Never publish local paths, tokens, secret values, private repository names, customer data, or WakaTime project names.
+- Keep `JhiNResH` as historical identity text only; do not add links to the unavailable account or repositories.
+- WakaTime is supporting evidence, not a productivity score. Keep project names, total lines, profile views, commit timing, and repository-language counts disabled.
 
 ## Verification
 
-Use the smallest meaningful check for the changed surface:
+Run:
 
-- JavaScript/TypeScript: prefer existing `check`, `test`, `lint`, `typecheck`, or `build` scripts from `package.json`.
-- Swift/Xcode: identify project/workspace, scheme, simulator/device, deployment target, then run the narrow `xcodebuild` build/test command.
-- Solidity/EVM: run the local Foundry/Hardhat tests relevant to touched contracts or scripts.
-- Python: run targeted tests or `python -m py_compile` for touched scripts when no test suite exists.
-- Docs/config only: run formatting/link/containment checks if the repo provides them; otherwise state why runtime verification is not applicable.
+```bash
+python3 -m unittest discover -s tests
+./scripts/check-profile.sh
+./scripts/check-profile.sh --links
+git diff --check
+```
 
-Never claim verification passed if the command was not run. Report skipped checks with the exact reason.
+The first command checks README/workflow invariants. The second also verifies every public HTTP link in the README.
+
+Never claim verification passed if a command was not run. Report skipped checks with the exact reason.
 
 ## Boundaries
 
-- Do not commit secrets, private keys, tokens, credentials, customer data, or local machine dumps.
-- Do not deploy, publish, submit forms, send messages, merge PRs, change permissions, create credentials, or make financial/auth/security changes without explicit action-time approval.
-- Do not delete meaningful local or cloud data unless explicitly asked for that exact action.
-- For auth, payment, wallet, parser/import, dependency, or externally exposed changes, include a security review note or explain why it is not applicable.
+- Do not create or copy credentials. `WAKATIME_API_KEY` must be configured by the account owner in GitHub Actions secrets.
+- Keep the WakaTime updater repo-local. Do not replace it with an action that receives credentials through a mutable Docker image or unpinned dependency.
+- Do not publish, merge, change repository visibility, trigger a workflow, or change account permissions without explicit action-time approval.
+- Keep third-party GitHub Actions pinned to full commit SHAs.
 
 ## Done Criteria
 
-A handoff is complete only when it includes:
-
-- changed files
-- verification command and result
-- skipped checks, if any
-- risks or follow-up work
-- commit/PR status, if shipping was requested
+A handoff is complete only when it includes changed files, verification evidence, skipped checks, residual risk, and commit/publish status.

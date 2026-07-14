@@ -1,8 +1,11 @@
-name: Metrics
+# Archived legacy workflow. Files outside .github/workflows are not executable by GitHub Actions.
+name: Legacy Profile Metrics
+
 on:
   workflow_dispatch:
+
 jobs:
-  github-metrics-3d-contrib: # Renamed job for 3D contrib
+  github-metrics-3d-contrib:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -15,14 +18,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
-      - name: Commit & Push
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A .
           git diff --quiet && git diff --staged --quiet || (git commit -m "generated" && git pull --rebase && git push)
 
-  github-metrics-stats: # New job for General Stats
+  github-metrics-stats:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -32,7 +35,7 @@ jobs:
         with:
           filename: metrics.overview.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          user: JhiNResH
+          user: ${{ github.repository_owner }}
           base: header, activity, community, repositories
           config_timezone: Asia/Taipei
           plugin_lines: yes
@@ -44,7 +47,7 @@ jobs:
         with:
           filename: metrics.languages.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          user: JhiNResH
+          user: ${{ github.repository_owner }}
           base: ""
           config_timezone: Asia/Taipei
           plugin_languages: yes

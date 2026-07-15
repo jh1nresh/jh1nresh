@@ -7,7 +7,7 @@ Repo rails for agents editing Jerry Chen's public GitHub profile.
 - Confirm the branch and dirty state with `git status --short --branch`.
 - Read `README.md`, `SETUP.md`, and the workflows before changing public claims.
 - Treat the legacy profile checkout as read-only evidence. Never edit it from this repo.
-- Preserve the profile's proof-first tone. Do not add typing animations, profile-view counters, generic skill badges, or unsupported metrics.
+- Preserve the profile's proof-first tone. Do not add typing animations, profile-view counters, uncurated badge walls, or unsupported metrics. A compact Languages & Tools badge table is allowed when every item matches the verified current stack.
 - Do not restore a source link until the destination is public and returns a successful response.
 
 ## Public Content Boundaries

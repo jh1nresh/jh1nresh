@@ -46,14 +46,7 @@ This preserved 3D visualization represents public activity from the previous `Jh
   <img src="profile-3d-contrib/profile-night-rainbow.svg" alt="Historical GitHub contribution visualization" />
 </p>
 
----
-
-### ⏱️ Weekly Coding Activity
-
-This privacy-safe section is refreshed manually from WakaTime. It shows the current language mix as supporting evidence, not a productivity score; private project names and repository metrics remain hidden.
-
 <!--START_SECTION:waka-->
-_WakaTime activity will appear after the repository secret is configured and the first manual refresh is approved._
 <!--END_SECTION:waka-->
 
 ---

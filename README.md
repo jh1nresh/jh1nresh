@@ -43,7 +43,7 @@ Based in Irvine, California. Originally from Taiwan. This is the active continua
 This visualization is refreshed hourly by GitHub Actions from the public contribution activity for this profile.
 
 <p align="center">
-  <img src="profile-3d-contrib/profile-night-rainbow.svg" alt="GitHub 3D contribution visualization" />
+  <img src="profile-3d-contrib/profile-night-rainbow.svg?v=6d87a742" alt="GitHub 3D contribution visualization" />
 </p>
 
 <!--START_SECTION:waka-->

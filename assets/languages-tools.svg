@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570" role="img" aria-labelledby="title desc">
+  <title id="title">Languages and tools map</title>
+  <desc id="desc">Four product surfaces show the technologies used from implementation through verified delivery.</desc>
+
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117" />
+      <stop offset="1" stop-color="#161b22" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#484f58" />
+    </marker>
+    <style>
+      .heading { fill: #f0f6fc; font: 700 30px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .subtitle { fill: #8b949e; font: 400 16px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .lane-title { fill: #f0f6fc; font: 700 17px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .lane-label { fill: #8b949e; font: 600 11px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1.2px; }
+      .node { fill: #f0f6fc; font: 600 15px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+      .node-note { fill: #8b949e; font: 400 12px Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+      .connector { stroke: #484f58; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="568" rx="24" fill="url(#background)" stroke="#30363d" stroke-width="2" />
+  <text x="42" y="50" class="heading">Languages &amp; Tools</text>
+  <text x="42" y="77" class="subtitle">Product surfaces connected by a proof-first delivery loop.</text>
+
+  <!-- Native iOS -->
+  <rect x="36" y="106" width="1128" height="94" rx="16" fill="#161b22" stroke="#30363d" />
+  <rect x="36" y="106" width="6" height="94" rx="3" fill="#ff7b72" />
+  <text x="62" y="139" class="lane-label">PRODUCT SURFACE</text>
+  <text x="62" y="166" class="lane-title">Native iOS</text>
+  <line x1="420" y1="153" x2="468" y2="153" class="connector" />
+  <line x1="660" y1="153" x2="708" y2="153" class="connector" />
+  <line x1="900" y1="153" x2="948" y2="153" class="connector" />
+  <rect x="230" y="123" width="190" height="60" rx="12" fill="#21262d" stroke="#ff7b72" />
+  <rect x="470" y="123" width="190" height="60" rx="12" fill="#21262d" stroke="#ff7b72" />
+  <rect x="710" y="123" width="190" height="60" rx="12" fill="#21262d" stroke="#ff7b72" />
+  <rect x="950" y="123" width="190" height="60" rx="12" fill="#21262d" stroke="#ff7b72" />
+  <text x="325" y="158" class="node">Swift</text>
+  <text x="565" y="158" class="node">SwiftUI</text>
+  <text x="805" y="158" class="node">MapKit</text>
+  <text x="1045" y="151" class="node">App Intents</text>
+  <text x="1045" y="169" class="node-note">extensions &amp; clips</text>
+
+  <!-- Web and APIs -->
+  <rect x="36" y="216" width="1128" height="94" rx="16" fill="#161b22" stroke="#30363d" />
+  <rect x="36" y="216" width="6" height="94" rx="3" fill="#58a6ff" />
+  <text x="62" y="249" class="lane-label">PRODUCT SURFACE</text>
+  <text x="62" y="276" class="lane-title">Web &amp; APIs</text>
+  <line x1="420" y1="263" x2="468" y2="263" class="connector" />
+  <line x1="660" y1="263" x2="708" y2="263" class="connector" />
+  <line x1="900" y1="263" x2="948" y2="263" class="connector" />
+  <rect x="230" y="233" width="190" height="60" rx="12" fill="#21262d" stroke="#58a6ff" />
+  <rect x="470" y="233" width="190" height="60" rx="12" fill="#21262d" stroke="#58a6ff" />
+  <rect x="710" y="233" width="190" height="60" rx="12" fill="#21262d" stroke="#58a6ff" />
+  <rect x="950" y="233" width="190" height="60" rx="12" fill="#21262d" stroke="#58a6ff" />
+  <text x="325" y="268" class="node">TypeScript</text>
+  <text x="565" y="261" class="node">React · Next.js</text>
+  <text x="565" y="279" class="node-note">interface</text>
+  <text x="805" y="268" class="node">Node.js</text>
+  <text x="1045" y="261" class="node">PostgreSQL</text>
+  <text x="1045" y="279" class="node-note">Python services</text>
+
+  <!-- Onchain -->
+  <rect x="36" y="326" width="1128" height="94" rx="16" fill="#161b22" stroke="#30363d" />
+  <rect x="36" y="326" width="6" height="94" rx="3" fill="#a371f7" />
+  <text x="62" y="359" class="lane-label">PRODUCT SURFACE</text>
+  <text x="62" y="386" class="lane-title">Onchain</text>
+  <line x1="420" y1="373" x2="468" y2="373" class="connector" />
+  <line x1="660" y1="373" x2="708" y2="373" class="connector" />
+  <line x1="900" y1="373" x2="948" y2="373" class="connector" />
+  <rect x="230" y="343" width="190" height="60" rx="12" fill="#21262d" stroke="#a371f7" />
+  <rect x="470" y="343" width="190" height="60" rx="12" fill="#21262d" stroke="#a371f7" />
+  <rect x="710" y="343" width="190" height="60" rx="12" fill="#21262d" stroke="#a371f7" />
+  <rect x="950" y="343" width="190" height="60" rx="12" fill="#21262d" stroke="#a371f7" />
+  <text x="325" y="378" class="node">Solidity · Rust</text>
+  <text x="565" y="378" class="node">Foundry · Anchor</text>
+  <text x="805" y="378" class="node">EAS</text>
+  <text x="1045" y="371" class="node">Base · Solana</text>
+  <text x="1045" y="389" class="node-note">settlement</text>
+
+  <!-- Engineering -->
+  <rect x="36" y="436" width="1128" height="94" rx="16" fill="#161b22" stroke="#30363d" />
+  <rect x="36" y="436" width="6" height="94" rx="3" fill="#3fb950" />
+  <text x="62" y="469" class="lane-label">DELIVERY LOOP</text>
+  <text x="62" y="496" class="lane-title">Engineering</text>
+  <line x1="420" y1="483" x2="468" y2="483" class="connector" />
+  <line x1="660" y1="483" x2="708" y2="483" class="connector" />
+  <line x1="900" y1="483" x2="948" y2="483" class="connector" />
+  <rect x="230" y="453" width="190" height="60" rx="12" fill="#21262d" stroke="#3fb950" />
+  <rect x="470" y="453" width="190" height="60" rx="12" fill="#21262d" stroke="#3fb950" />
+  <rect x="710" y="453" width="190" height="60" rx="12" fill="#21262d" stroke="#3fb950" />
+  <rect x="950" y="453" width="190" height="60" rx="12" fill="#21262d" stroke="#3fb950" />
+  <text x="325" y="488" class="node">GitHub Actions</text>
+  <text x="565" y="481" class="node">Deterministic</text>
+  <text x="565" y="499" class="node-note">tests</text>
+  <text x="805" y="481" class="node">Adversarial</text>
+  <text x="805" y="499" class="node-note">review</text>
+  <text x="1045" y="481" class="node">Inspectable</text>
+  <text x="1045" y="499" class="node-note">receipts</text>
+</svg>

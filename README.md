@@ -27,34 +27,6 @@ Based in Irvine, California. Originally from Taiwan. This is the active continua
 
 ---
 
-### 🚀 Selected Work
-
-#### SAV-E: Private Place Memory for iOS
-
-Turns messy travel and food clues from social links, web pages, voice, and Google Takeout into reviewable evidence and confirmed Map Stamps. Uncertain clues stay in Review instead of becoming invented places.
-
-`SwiftUI` · `MapKit` · `App Intents` · `Share Extension` · `App Clip` · `Node.js` · `PostgreSQL`
-
-[Open the web handoff](https://sav-e-app.vercel.app)
-
-#### Maiat Protocol: Trust Infrastructure for Agentic Commerce
-
-Combines agent and token risk signals, community reviews, onchain behavior, and attestations behind a trust API, SDKs, middleware, and deployed Base contracts.
-
-`TypeScript` · `Next.js` · `Solidity` · `Foundry` · `EAS` · `Base`
-
-[Open the live app](https://app.maiat.io) · [Read the API docs](https://app.maiat.io/docs)
-
-#### Match Receipt Engine: Proof-Gated Settlement
-
-Converts sports events into deterministic settlement receipts. Merkle proof verification gates state transitions; tampered evidence blocks settlement and routes funds to a refund path.
-
-`TypeScript` · `Merkle proofs` · `State machines` · `TxLINE` · `Vercel`
-
-[Open the live demo](https://match-receipt-engine.vercel.app) · [Test the tamper path](https://match-receipt-engine.vercel.app/?tamper=1)
-
----
-
 ### 🛠 Languages & Tools
 
 | Product Surface | Skills & Frameworks |
@@ -63,33 +35,6 @@ Converts sports events into deterministic settlement receipts. Merkle proof veri
 | **Web & APIs** | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
 | **Onchain** | ![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white) ![Foundry](https://img.shields.io/badge/Foundry-FF4C39?style=flat-square&logo=rust&logoColor=white) ![EAS](https://img.shields.io/badge/EAS-7C3AED?style=flat-square&logo=ethereum&logoColor=white) ![Base](https://img.shields.io/badge/Base-0052FF?style=flat-square&logo=coinbase&logoColor=white) ![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white) ![Anchor](https://img.shields.io/badge/Anchor-3F51B5?style=flat-square) ![Solana](https://img.shields.io/badge/Solana-9945FF?style=flat-square&logo=solana&logoColor=white) |
 | **Engineering** | ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![Deterministic Tests](https://img.shields.io/badge/Deterministic%20Tests-2EA44F?style=flat-square&logo=checkmarx&logoColor=white) ![Adversarial Review](https://img.shields.io/badge/Adversarial%20Review-8250DF?style=flat-square&logo=github&logoColor=white) ![Inspectable Receipts](https://img.shields.io/badge/Inspectable%20Receipts-1F6FEB?style=flat-square&logo=bookstack&logoColor=white) |
-
----
-
-### 🧭 How I Build
-
-```text
-customer problem
--> explicit product decision
--> narrow implementation
--> deterministic checks
--> adversarial review
--> inspectable receipt
-```
-
-- Repeated workflows need explicit state, feedback, convergence, and stop conditions.
-- AI coding agents work inside a reviewable engineering harness; they do not replace product judgment.
-- Public claims should point to a live product, reproducible artifact, or verified history.
-
----
-
-### 🏆 Experience & Recognition
-
-- Founder of **Sponge**, a Solana stablecoin yield project; previously a Growth Developer Intern at **Perena** and a **Wormhole Fellow**.
-- **Base Batches 003** Student Track: Top 5 with Maiat.
-- **BNB Chain US College Hackathon**: 2nd place with Dojo.
-- **Jito Grid Hackathon**: 1st place with Sponge.
-- Graduate study in computer science at **Westcliff University**, with prior graduate training in information systems and mechanical engineering.
 
 ---
 

@@ -9,22 +9,14 @@ fail() {
   exit 1
 }
 
-for file in README.md SETUP.md AGENTS.md .github/workflows/metrics.yml .github/workflows/waka.yml scripts/update_wakatime.py; do
+for file in README.md SETUP.md AGENTS.md .github/workflows/metrics.yml; do
   [[ -f "$file" ]] || fail "missing $file"
 done
-
-[[ "$(grep -c '<!--START_SECTION:waka-->' README.md)" -eq 1 ]] || fail "README must contain one WakaTime start marker"
-[[ "$(grep -c '<!--END_SECTION:waka-->' README.md)" -eq 1 ]] || fail "README must contain one WakaTime end marker"
 
 if rg -n 'https://github\.com/JhiNResH(?:/|\))' README.md; then
   fail "README contains an unavailable legacy GitHub link"
 fi
 
-rg -q 'python3 scripts/update_wakatime.py' .github/workflows/waka.yml || fail "WakaTime workflow must use the repo-local updater"
-rg -q 'WAKATIME_API_KEY: \$\{\{ secrets\.WAKATIME_API_KEY \}\}' .github/workflows/waka.yml || fail "WakaTime secret must stay in the workflow environment"
-if rg -q 'GH_TOKEN|waka-readme-stats|SHOW_PROJECTS' .github/workflows/waka.yml; then
-  fail "WakaTime workflow reintroduced a PAT or third-party stats action"
-fi
 rg -q 'cron: "17 \* \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run hourly away from the top-of-hour load spike"
 rg -q 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
 rg -q 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"

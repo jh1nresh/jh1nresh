@@ -13,29 +13,25 @@ Repo rails for agents editing Jerry Chen's public GitHub profile.
 ## Public Content Boundaries
 
 - Every claim must be supported by a live product, public artifact, or verified local history.
-- Never publish local paths, tokens, secret values, private repository names, customer data, or WakaTime project names.
+- Never publish local paths, tokens, secret values, private repository names, or customer data.
 - Keep `JhiNResH` as historical identity text only; do not add links to the unavailable account or repositories.
-- WakaTime is supporting evidence, not a productivity score. Keep project names, total lines, profile views, commit timing, and repository-language counts disabled.
 
 ## Verification
 
 Run:
 
 ```bash
-python3 -m unittest discover -s tests
 ./scripts/check-profile.sh
 ./scripts/check-profile.sh --links
 git diff --check
 ```
 
-The first command checks README/workflow invariants. The second also verifies every public HTTP link in the README.
+The profile script checks README/workflow invariants. The `--links` command also verifies every public HTTP link in the README.
 
 Never claim verification passed if a command was not run. Report skipped checks with the exact reason.
 
 ## Boundaries
 
-- Do not create or copy credentials. `WAKATIME_API_KEY` must be configured by the account owner in GitHub Actions secrets.
-- Keep the WakaTime updater repo-local. Do not replace it with an action that receives credentials through a mutable Docker image or unpinned dependency.
 - Do not publish, merge, change repository visibility, trigger a workflow, or change account permissions without explicit action-time approval.
 - Keep third-party GitHub Actions pinned to full commit SHAs.
 

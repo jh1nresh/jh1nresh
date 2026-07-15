@@ -46,9 +46,6 @@ This visualization is refreshed hourly by GitHub Actions from the public contrib
   <img src="profile-3d-contrib/profile-night-rainbow.svg?v=6d87a742" alt="GitHub 3D contribution visualization" />
 </p>
 
-<!--START_SECTION:waka-->
-<!--END_SECTION:waka-->
-
 ---
 
 Built by [jh1nresh](https://github.com/jh1nresh)

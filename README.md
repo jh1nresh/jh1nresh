@@ -113,12 +113,4 @@ _WakaTime activity will appear after the repository secret is configured and the
 
 ---
 
-### 📫 Contact
-
-I am open to conversations about agent infrastructure, verifiable execution, consumer AI, onchain settlement, and early-stage product engineering.
-
-[Portfolio](https://www.jeezlabs.io) · [X](https://x.com/JhiNResH) · [Profile and links](https://dinq.me/jhinresh) · [Email](mailto:jhinresh@gmail.com)
-
----
-
 Built by [jh1nresh](https://github.com/jh1nresh)

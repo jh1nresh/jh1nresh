@@ -1,0 +1,40 @@
+name: Refresh 3D Contributions
+
+on:
+  schedule:
+    # Run hourly away from GitHub's top-of-hour load spike.
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: profile-3d-contrib
+  cancel-in-progress: false
+
+jobs:
+  update-3d-contributions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Generate 3D contribution calendar
+        uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Commit a changed visualization
+        run: |
+          git add -- profile-3d-contrib
+          if git diff --cached --quiet; then
+            echo "3D contribution visualization is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(profile): refresh 3D contributions"
+          git pull --rebase origin main
+          git push origin HEAD:main

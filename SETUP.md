@@ -24,9 +24,11 @@ Do not copy token values from the previous account or commit them to Git. The wo
 
 The public configuration intentionally hides project names, total lines of code, profile views, commit timing, operating system, editors, and repository-language counts.
 
-## Optional metrics
+## 3D contribution visualization
 
-The previous generated SVG assets remain in the repository. Their workflow is preserved at `archive/workflows/metrics.yml`, outside GitHub's executable workflow directory. Do not reactivate it unless the metrics add useful evidence and its action dependencies receive a fresh security review.
+The active `.github/workflows/metrics.yml` refreshes the 3D contribution SVGs once per hour and also supports manual runs. It uses GitHub's built-in short-lived token, so no additional secret is required.
+
+The workflow is limited to scheduled and manual triggers, stages only `profile-3d-contrib`, and pins every third-party action to a full commit SHA. Review those pins before changing action versions.
 
 ## Local verification
 

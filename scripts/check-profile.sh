@@ -9,7 +9,7 @@ fail() {
   exit 1
 }
 
-for file in README.md SETUP.md AGENTS.md .github/workflows/waka.yml archive/workflows/metrics.yml scripts/update_wakatime.py; do
+for file in README.md SETUP.md AGENTS.md .github/workflows/metrics.yml .github/workflows/waka.yml scripts/update_wakatime.py; do
   [[ -f "$file" ]] || fail "missing $file"
 done
 
@@ -25,14 +25,19 @@ rg -q 'WAKATIME_API_KEY: \$\{\{ secrets\.WAKATIME_API_KEY \}\}' .github/workflow
 if rg -q 'GH_TOKEN|waka-readme-stats|SHOW_PROJECTS' .github/workflows/waka.yml; then
   fail "WakaTime workflow reintroduced a PAT or third-party stats action"
 fi
-rg -q 'user: \$\{\{ github\.repository_owner \}\}' archive/workflows/metrics.yml || fail "archived metrics workflow must not hardcode the legacy owner"
+rg -q 'cron: "17 \* \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run hourly away from the top-of-hour load spike"
+rg -q 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
+rg -q 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
+if rg -q '^[[:space:]]+push:' .github/workflows/metrics.yml; then
+  fail "3D contribution workflow must not trigger itself on push"
+fi
 
 if unpinned="$(rg -n --pcre2 'uses:\s+\S+@(?![0-9a-f]{40}(?:\s|#|$))' .github/workflows || true)" && [[ -n "$unpinned" ]]; then
   printf '%s\n' "$unpinned" >&2
   fail "third-party actions must use full commit SHAs"
 fi
 
-ruby --disable-gems -e 'require "yaml"; ARGV.each { |path| YAML.load_file(path) }' .github/workflows/*.yml archive/workflows/*.yml
+ruby --disable-gems -e 'require "yaml"; ARGV.each { |path| YAML.load_file(path) }' .github/workflows/*.yml
 
 if [[ "${1:-}" == "--links" ]]; then
   while IFS= read -r url; do

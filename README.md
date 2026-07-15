@@ -38,12 +38,12 @@ Based in Irvine, California. Originally from Taiwan. This is the active continua
 
 ---
 
-### 🌌 GitHub 3D Contribution Archive
+### 🌌 GitHub 3D Contributions
 
-This preserved 3D visualization represents public activity from the previous `JhiNResH` profile. It is a historical snapshot, not a live contribution counter.
+This visualization is refreshed hourly by GitHub Actions from the public contribution activity for this profile.
 
 <p align="center">
-  <img src="profile-3d-contrib/profile-night-rainbow.svg" alt="Historical GitHub contribution visualization" />
+  <img src="profile-3d-contrib/profile-night-rainbow.svg" alt="GitHub 3D contribution visualization" />
 </p>
 
 <!--START_SECTION:waka-->

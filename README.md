@@ -55,12 +55,9 @@ Converts sports events into deterministic settlement receipts. Merkle proof veri
 
 ### 🛠 Languages & Tools
 
-| Product surface | Stack |
-| :--- | :--- |
-| **Native iOS** | Swift, SwiftUI, MapKit, App Intents, Share Extension, App Clip |
-| **Web & APIs** | TypeScript, React, Next.js, Node.js, PostgreSQL, Python |
-| **Onchain** | Solidity, Foundry, EAS, Base, Rust, Anchor, Solana |
-| **Engineering** | GitHub Actions, deterministic tests, adversarial review, receipt-based workflows |
+<p align="center">
+  <img src="assets/languages-tools.svg" alt="Technology map covering Native iOS, Web and APIs, onchain systems, and the verification-focused engineering loop" width="100%" />
+</p>
 
 ---
 

@@ -17,7 +17,7 @@ if rg -n 'https://github\.com/JhiNResH(?:/|\))' README.md; then
   fail "README contains an unavailable legacy GitHub link"
 fi
 
-rg -q 'cron: "17 \* \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run hourly away from the top-of-hour load spike"
+rg -q 'cron: "17 3 \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run once daily away from the top-of-hour load spike"
 rg -q 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
 rg -q 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
 if rg -q '^[[:space:]]+push:' .github/workflows/metrics.yml; then

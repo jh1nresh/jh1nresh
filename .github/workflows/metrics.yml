@@ -2,9 +2,12 @@ name: Refresh 3D Contributions
 
 on:
   schedule:
-    # Run hourly away from GitHub's top-of-hour load spike.
-    - cron: "17 * * * *"
+    # One daily refresh is enough for a contribution visualization.
+    - cron: "17 3 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: profile-3d-contrib
@@ -18,7 +21,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: profile-assets
 
       - name: Generate 3D contribution calendar
         uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
@@ -36,5 +41,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(profile): refresh 3D contributions"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git pull --rebase origin profile-assets
+          git push origin HEAD:profile-assets

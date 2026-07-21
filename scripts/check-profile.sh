@@ -13,21 +13,28 @@ for file in README.md SETUP.md AGENTS.md .github/workflows/metrics.yml; do
   [[ -f "$file" ]] || fail "missing $file"
 done
 
-if rg -n 'https://github\.com/JhiNResH(?:/|\))' README.md; then
+if grep -En 'https://github\.com/JhiNResH(/|\))' README.md; then
   fail "README contains an unavailable legacy GitHub link"
 fi
 
-rg -q 'cron: "17 \* \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run hourly away from the top-of-hour load spike"
-rg -q 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
-rg -q 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
-if rg -q '^[[:space:]]+push:' .github/workflows/metrics.yml; then
+grep -Eq 'cron: "17 3 \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run once daily away from the top-of-hour load spike"
+grep -Eq 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
+grep -Eq 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
+if grep -Eq '^[[:space:]]+push:' .github/workflows/metrics.yml; then
   fail "3D contribution workflow must not trigger itself on push"
 fi
 
-if unpinned="$(rg -n --pcre2 'uses:\s+\S+@(?![0-9a-f]{40}(?:\s|#|$))' .github/workflows || true)" && [[ -n "$unpinned" ]]; then
-  printf '%s\n' "$unpinned" >&2
-  fail "third-party actions must use full commit SHAs"
-fi
+ruby --disable-gems -e '
+  Dir[".github/workflows/*.{yml,yaml}"].each do |path|
+    File.foreach(path).with_index(1) do |line, number|
+      target = line[/\buses:\s*([^\s#]+)/, 1]
+      next unless target
+      next if target.start_with?("./", "docker://")
+      ref = target.split("@", 2)[1]
+      abort "#{path}:#{number}: unpinned action #{target}" unless ref&.match?(/\A[0-9a-f]{40}\z/)
+    end
+  end
+'
 
 ruby --disable-gems -e 'require "yaml"; ARGV.each { |path| YAML.load_file(path) }' .github/workflows/*.yml
 

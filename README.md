@@ -5,7 +5,7 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-111111?style=flat-square&logo=vercel&logoColor=white)](https://www.jeezlabs.io)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/jh1nresh)
 [![X](https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/JhiNResH)
-[![Profile](https://img.shields.io/badge/Profile-0A66C2?style=flat-square&logo=linktree&logoColor=white)](https://dinq.me/jhinresh)
+[![Profile](https://img.shields.io/badge/Profile-0A66C2?style=flat-square&logo=linktree&logoColor=white)](https://dinq.me/jh1nresh)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:jhinresh@gmail.com)
 
 I work across native iOS, full-stack TypeScript, Solidity, and Solana. My focus is making agents useful in real workflows through clear permissions, inspectable receipts, deterministic checks, and safe failure when evidence is incomplete.

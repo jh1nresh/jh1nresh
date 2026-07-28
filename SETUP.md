@@ -18,7 +18,7 @@ https://github.com/jh1nresh/jh1nresh.git
 
 The active `.github/workflows/metrics.yml` refreshes the 3D contribution SVGs once per day on `main` and also supports manual runs. It uses GitHub's built-in short-lived token, so no additional secret is required.
 
-The workflow is limited to scheduled and manual triggers, stages only `profile-3d-contrib`, and pushes generated changes back to `main`. Every third-party action is pinned to a full commit SHA. Review those pins before changing action versions.
+The workflow is limited to scheduled and manual triggers, stages only `profile-3d-contrib`, and merges generated changes into `main` through a CI-validated pull request. Every third-party action is pinned to a full commit SHA. Review those pins before changing action versions.
 
 ## Local verification
 

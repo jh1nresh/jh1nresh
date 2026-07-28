@@ -22,7 +22,12 @@ grep -Eq 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metr
 grep -Eq 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
 grep -Eq '^[[:space:]]+ref: main$' .github/workflows/metrics.yml || fail "3D contribution workflow must check out main"
 grep -Eq 'git pull --rebase origin main' .github/workflows/metrics.yml || fail "3D contribution workflow must rebase onto main"
-grep -Eq 'git push origin HEAD:main' .github/workflows/metrics.yml || fail "3D contribution workflow must push generated assets to main"
+grep -Eq 'gh pr create.*' .github/workflows/metrics.yml || fail "3D contribution workflow must publish generated assets through a pull request"
+grep -Eq 'gh workflow run ci\.yml' .github/workflows/metrics.yml || fail "3D contribution workflow must dispatch validation for generated assets"
+grep -Eq 'gh pr merge.*--squash' .github/workflows/metrics.yml || fail "3D contribution workflow must merge validated generated assets into main"
+if grep -Eq 'git push origin HEAD:main' .github/workflows/metrics.yml; then
+  fail "3D contribution workflow must not bypass the main pull request rule"
+fi
 grep -Fq 'jh1nresh/jh1nresh/main/profile-3d-contrib/profile-night-rainbow.svg' README.md || fail "README must load the 3D contribution visualization from main"
 if grep -R -n --exclude-dir=.git --exclude=check-profile.sh 'profile-assets' README.md SETUP.md .github scripts; then
   fail "profile repository must not depend on the retired profile-assets branch"

@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
+      actions: write
       contents: write
+      pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -31,15 +33,51 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
-      - name: Commit a changed visualization
+      - name: Publish a changed visualization through a pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           git add -- profile-3d-contrib
           if git diff --cached --quiet; then
             echo "3D contribution visualization is already current."
             exit 0
           fi
+
+          branch="automation/refresh-3d-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
           git commit -m "chore(profile): refresh 3D contributions"
           git pull --rebase origin main
-          git push origin HEAD:main
+          git push origin "$branch"
+
+          head_sha="$(git rev-parse HEAD)"
+          pr_url="$(gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "chore(profile): refresh 3D contributions" \
+            --body "Automated daily refresh of the generated 3D contribution SVGs.")"
+
+          gh workflow run ci.yml --ref "$branch"
+
+          run_id=""
+          for _ in $(seq 1 30); do
+            run_id="$(gh run list \
+              --workflow ci.yml \
+              --branch "$branch" \
+              --event workflow_dispatch \
+              --limit 10 \
+              --json databaseId,headSha \
+              --jq "map(select(.headSha == \"$head_sha\"))[0].databaseId // empty")"
+            [[ -n "$run_id" ]] && break
+            sleep 2
+          done
+
+          if [[ -z "$run_id" ]]; then
+            echo "Unable to find the validation workflow run for $head_sha." >&2
+            exit 1
+          fi
+
+          gh run watch "$run_id" --exit-status
+          gh pr merge "$pr_url" --squash --delete-branch

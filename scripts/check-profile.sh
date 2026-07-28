@@ -20,6 +20,13 @@ fi
 grep -Eq 'cron: "17 3 \* \* \*"' .github/workflows/metrics.yml || fail "3D contribution workflow must run once daily away from the top-of-hour load spike"
 grep -Eq 'USERNAME: \$\{\{ github\.repository_owner \}\}' .github/workflows/metrics.yml || fail "3D contribution workflow must use the current repository owner"
 grep -Eq 'git add -- profile-3d-contrib' .github/workflows/metrics.yml || fail "3D contribution workflow must stage only its generated directory"
+grep -Eq '^[[:space:]]+ref: main$' .github/workflows/metrics.yml || fail "3D contribution workflow must check out main"
+grep -Eq 'git pull --rebase origin main' .github/workflows/metrics.yml || fail "3D contribution workflow must rebase onto main"
+grep -Eq 'git push origin HEAD:main' .github/workflows/metrics.yml || fail "3D contribution workflow must push generated assets to main"
+grep -Fq 'jh1nresh/jh1nresh/main/profile-3d-contrib/profile-night-rainbow.svg' README.md || fail "README must load the 3D contribution visualization from main"
+if grep -R -n --exclude-dir=.git --exclude=check-profile.sh 'profile-assets' README.md SETUP.md .github scripts; then
+  fail "profile repository must not depend on the retired profile-assets branch"
+fi
 if grep -Eq '^[[:space:]]+push:' .github/workflows/metrics.yml; then
   fail "3D contribution workflow must not trigger itself on push"
 fi

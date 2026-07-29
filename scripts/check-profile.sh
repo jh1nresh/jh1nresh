@@ -24,7 +24,8 @@ grep -Eq '^[[:space:]]+ref: main$' .github/workflows/metrics.yml || fail "3D con
 grep -Eq 'git pull --rebase origin main' .github/workflows/metrics.yml || fail "3D contribution workflow must rebase onto main"
 grep -Eq 'gh pr create.*' .github/workflows/metrics.yml || fail "3D contribution workflow must publish generated assets through a pull request"
 grep -Eq 'gh workflow run ci\.yml' .github/workflows/metrics.yml || fail "3D contribution workflow must dispatch validation for generated assets"
-grep -Eq 'gh pr merge.*--squash' .github/workflows/metrics.yml || fail "3D contribution workflow must merge validated generated assets into main"
+grep -Eq 'statuses/\$\{head_sha\}' .github/workflows/metrics.yml || fail "3D contribution workflow must publish the successful validation status"
+grep -Eq 'gh pr merge.*--auto.*--squash' .github/workflows/metrics.yml || fail "3D contribution workflow must auto-merge validated generated assets into main"
 if grep -Eq 'git push origin HEAD:main' .github/workflows/metrics.yml; then
   fail "3D contribution workflow must not bypass the main pull request rule"
 fi
